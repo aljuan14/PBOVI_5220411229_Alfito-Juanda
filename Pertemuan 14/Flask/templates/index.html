@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <h1>Data Mahasiswa</h1>
+
+    <form action="/add" method="post">
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama"><br><br>
+
+        <label for="npm">NPM:</label>
+        <input type="text" id="npm" name="npm"><br><br>
+
+        <label for="jurusan">Jurusan:</label>
+        <input type="text" id="jurusan" name="jurusan"><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <table>
+        <caption></caption>
+        <tr>
+            <th>NPM</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+            <th>Action</th>
+        </tr>
+        {% for mahasiswa in data_mahasiswa %}
+            <tr>
+                <td>{{ mahasiswa[0] }}</td>
+                <td>{{ mahasiswa[1] }}</td>
+                <td>{{ mahasiswa[2] }}</td>
+                <td>
+                    <a href="/edit/{{ mahasiswa[0] }}"><input type="button1" value="Edit"></a>
+                    <a href="/delete/{{ mahasiswa[0] }}"><input type="button" value="Delete"></a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
